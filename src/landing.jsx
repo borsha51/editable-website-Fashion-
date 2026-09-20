@@ -20,7 +20,7 @@ export default function Landing(){
     </header>
     <main>
       <section className="lhero" style={{order:order("hero")}}>
-        <img src={L.hero?.image||(L.collections?.[0]?.image||(L.collections?.[0]?.image||site.collections[0].image))} alt="Nexora editorial fashion"/>
+        {L.hero?.video?<video src={L.hero.video} autoPlay muted loop playsInline/>:<img src={L.hero?.image||L.collections?.[0]?.image||site.collections[0].image} alt="Nexora editorial fashion"/>}
         <div className="lheroShade"/>
         <div className="lheroCopy"><span>{L.hero?.badge||'NEW SEASON · 2026'}</span><h1>{L.hero?.title||'Quietly distinct.'}</h1><p>{L.hero?.subtitle||'Modern essentials for a wardrobe with intention. Refined silhouettes, tactile fabrics and pieces made to stay.'}</p><a className="lbutton" href="#collection">{L.hero?.primary||'Explore the collection'} <ArrowRight/></a></div>
         <div className="lheroMark">NEXORA / 01</div>
