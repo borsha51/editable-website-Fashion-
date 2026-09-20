@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nexora-web.onrender.com/sitemap.xml
