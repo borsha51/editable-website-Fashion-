@@ -11,9 +11,9 @@ export default function Landing(){
   const [ai,setAi]=React.useState(false),[email,setEmail]=React.useState(''),[notice,setNotice]=React.useState('');
   return <div className="landing">
     <header className="lhead">
-      <a className="lbrand" href="/">NEXORA</a>
+      <a className="lbrand" href="/">{data.brand||"NEXORA WEB"}</a>
       <nav className={menu?'lmnav open':'lmnav'}>
-        {['Collection','Story','Journal'].map(x=><a key={x} href={'#'+x.toLowerCase()} onClick={()=>setMenu(false)}>{x}</a>)}
+        {(data.nav||['Collection','Story','Journal']).map((x,i)=><a key={i} href={x.toLowerCase().includes('journal')?'#journal':x.toLowerCase().includes('story')?'#story':'#collection'} onClick={()=>setMenu(false)}>{x}</a>)}
         <a className="lshop" href="/">Shop the collection <ArrowRight size={14}/></a>
       </nav>
       <button className="lmenu" onClick={()=>setMenu(!menu)} aria-label="Menu">{menu?<X/>:<Menu/>}</button>
@@ -26,10 +26,10 @@ export default function Landing(){
         <div className="lheroMark">NEXORA / 01</div>
       </section>
       <section id="collection" className="lintro"><span>{L.intro?.eyebrow||'THE NEXORA EDIT'}</span><h2>{L.intro?.title||'Designed for now. Made for longer.'}</h2><p>{L.intro?.text||'We believe personal style is built slowly: through proportion, texture and the confidence to repeat what works.'}</p></section>
-      <section className="ltiles">
-        <a href="/" className="ltile"><img src={site.collections[0].image} alt="The quiet edit"/><div><span>01 / THE QUIET EDIT</span><h3>{L.collections?.[0]?.title||'Soft structure'}</h3><b>Explore <ArrowRight/></b></div></a>
-        <a href="/" className="ltile"><img src={(L.collections?.[1]?.image||(L.collections?.[1]?.image||site.collections[1].image))} alt="After hours"/><div><span>02 / AFTER HOURS</span><h3>{L.collections?.[1]?.title||'Sharper after dark'}</h3><b>Explore <ArrowRight/></b></div></a>
-      </section>
+      {show('collections')&&<section className="ltiles">
+        <a href="/" className="ltile"><img src={L.collections?.[0]?.image||site.collections[0].image} alt={L.collections?.[0]?.title||"The quiet edit"}/><div><span>01 / THE QUIET EDIT</span><h3>{L.collections?.[0]?.title||'Soft structure'}</h3><b>Explore <ArrowRight/></b></div></a>
+        <a href="/" className="ltile"><img src={L.collections?.[1]?.image||site.collections[1].image} alt="After hours"/><div><span>02 / AFTER HOURS</span><h3>{L.collections?.[1]?.title||'Sharper after dark'}</h3><b>Explore <ArrowRight/></b></div></a>
+      </section>}
       {show('story')&&<section id="story" className="lstory"><div className="storyImage"><img src={L.story?.image||data.products?.[0]?.image||site.products[0].image} alt={L.story?.heading||'Nexora story'}/><small>NEXORA / STORY</small></div><div className="storyCopy"><span>{L.story?.eyebrow||'OUR APPROACH'}</span><h2>{L.story?.heading||'Fewer, better things.'}</h2><p>{L.story?.text||''}</p><div className="stats">{(L.story?.stats||[]).map((s,i)=><div key={i}><b>{s[0]}</b><small>{s[1]}</small></div>)}</div></div></section>}
 {show('journal')&&<section id="journal" className="ljournal"><div><span>THE JOURNAL</span><h2>Style notes<br/><i>without the noise.</i></h2></div>{(L.journal||[]).map((j,i)=><article key={i}>{j.image&&<img src={j.image} alt=""/>}<small>{j.category||'STYLE NOTE'} {j.date&&'· '+j.date}</small><h3>{j.title}</h3><p>{j.text}</p><a href={j.link||'/'}>Read the edit <ArrowRight size={15}/></a></article>)}</section>}
 {show('reviews')&&<section className="admin-review-section"><span>CLIENT NOTES</span><h2>Real words,<br/><i>real style.</i></h2><div className="review-strip">{(L.testimonials||[]).map(r=><article key={r.id}><img src={r.image||site.products[0].image} alt={r.name}/><b>{r.name}</b><small>{'★'.repeat(Number(r.rating||5))}</small><p>“{r.review}”</p></article>)}</div></section>}
