@@ -1,0 +1,6 @@
+import {createClient} from '@libsql/client';
+export function getDb(){const url=process.env.TURSO_DATABASE_URL,authToken=process.env.TURSO_AUTH_TOKEN;if(!url||!authToken)throw new Error('Turso is not configured');return createClient({url,authToken});}
+export async function initDb(){const db=getDb();await db.batch([
+{sql:'CREATE TABLE IF NOT EXISTS orders (id INTEGER PRIMARY KEY AUTOINCREMENT, customer_name TEXT NOT NULL, email TEXT NOT NULL, phone TEXT, address TEXT NOT NULL, items_json TEXT NOT NULL, total INTEGER NOT NULL, status TEXT NOT NULL DEFAULT \'pending\', created_at TEXT NOT NULL)',args:[]},
+{sql:'CREATE TABLE IF NOT EXISTS subscribers (id INTEGER PRIMARY KEY AUTOINCREMENT,email TEXT UNIQUE NOT NULL,created_at TEXT NOT NULL)',args:[]}
+],'write');}
