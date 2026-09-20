@@ -1,8 +1,0 @@
-export const site={brand:'NEXORA',tagline:'Modern wardrobe, considered.',currency:'৳',nav:['New In','Women','Men','Accessories','Journal'],products:[
-{id:'n01',name:'Sculpted Linen Blazer',category:'Women',price:8900,image:'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=900&q=85',color:'Sand'},
-{id:'n02',name:'Atelier Silk Shirt',category:'Women',price:5900,image:'https://images.unsplash.com/photo-1605763240000-7e93b172d754?auto=format&fit=crop&w=900&q=85',color:'Ivory'},
-{id:'n03',name:'Relaxed Wool Trouser',category:'Men',price:7200,image:'https://images.unsplash.com/photo-1506629905607-d9f29d1f3d7a?auto=format&fit=crop&w=900&q=85',color:'Charcoal'},
-{id:'n04',name:'Studio Leather Tote',category:'Accessories',price:6800,image:'https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=900&q=85',color:'Cocoa'},
-{id:'n05',name:'Column Knit Dress',category:'Women',price:7600,image:'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=900&q=85',color:'Black'},
-{id:'n06',name:'Oversized Cotton Overshirt',category:'Men',price:5400,image:'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=900&q=85',color:'Stone'}
-],collections:[{title:'The Quiet Edit',text:'Clean lines, tactile layers and pieces designed to stay in rotation.',image:'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=85'},{title:'After Hours',text:'A darker, sharper edit for evenings that run late.',image:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1400&q=85'}]};
