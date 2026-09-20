@@ -1,0 +1,6 @@
+{
+  "name":"nexora-fashion","private":true,"version":"1.0.0","type":"module",
+  "scripts":{"dev":"concurrently \"vite\" \"node server/index.js\"","build":"vite build","start":"node server/index.js","db:init":"node server/migrate.js"},
+  "dependencies":{"@libsql/client":"^0.15.15","@mlc-ai/web-llm":"^0.2.80","concurrently":"^9.1.2","express":"^5.1.0","lucide-react":"^0.468.0","react":"^19.1.1","react-dom":"^19.1.1","vite":"^7.1.7"},
+  "devDependencies":{"@vitejs/plugin-react":"^5.0.2","vite":"^7.1.7"}
+}
