@@ -1,0 +1,1 @@
+import {initDb} from './db.js';await initDb();console.log('Nexora Turso schema ready.');
